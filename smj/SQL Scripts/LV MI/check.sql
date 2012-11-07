@@ -1,0 +1,35 @@
+select * from ManagementInformation mi
+where mi.ManagementInformation_Inactive = 0
+and mi.ManagementInformation_CaseID IN
+(  
+5295,
+5261,
+8528,
+8320,
+8534,
+8163,
+7558,
+7107,
+7356,
+8548,
+7291,
+8464,
+7292,
+7295,
+7288,
+5910,
+5957,
+5557,
+8552,
+8150,
+5389,
+8196,
+7804,
+8462,
+7674,
+8461,
+8266,
+6275,
+8257,
+8583
+)

@@ -1,0 +1,80 @@
+LVType,LVTYPE,LVTYPE,"SELECT 'LVREASLIT', '1', 'No Arguments', 'No Arguments', 'LV', 0, GETDATE(), 'SMJ'"
+FR ,Fraud,"INSERT INTO MILookupFieldDefinition SELECT 'LVType', 'FR ', 'Fraud', 'Fraud', 'LV', 0, GETDATE(), 'SMJ'",
+LS,LSI,"INSERT INTO MILookupFieldDefinition SELECT 'LVType', 'LS', 'LSI', 'LSI', 'LV', 0, GETDATE(), 'SMJ'",
+RC,Recovery,"INSERT INTO MILookupFieldDefinition SELECT 'LVType', 'RC', 'Recovery', 'Recovery', 'LV', 0, GETDATE(), 'SMJ'",
+CO,Costs,"INSERT INTO MILookupFieldDefinition SELECT 'LVType', 'CO', 'Costs', 'Costs', 'LV', 0, GETDATE(), 'SMJ'",
+MP,Motor - PI only,"INSERT INTO MILookupFieldDefinition SELECT 'LVType', 'MP', 'Motor - PI only', 'Motor - PI only', 'LV', 0, GETDATE(), 'SMJ'",
+MC,Motor - Credit Hire only,"INSERT INTO MILookupFieldDefinition SELECT 'LVType', 'MC', 'Motor - Credit Hire only', 'Motor - Credit Hire only', 'LV', 0, GETDATE(), 'SMJ'",
+MB,Motor - PI & Credit Hire,"INSERT INTO MILookupFieldDefinition SELECT 'LVType', 'MB', 'Motor - PI & Credit Hire', 'Motor - PI & Credit Hire', 'LV', 0, GETDATE(), 'SMJ'",
+SU,Subsidence,"INSERT INTO MILookupFieldDefinition SELECT 'LVType', 'SU', 'Subsidence', 'Subsidence', 'LV', 0, GETDATE(), 'SMJ'",
+PL,PL,"INSERT INTO MILookupFieldDefinition SELECT 'LVType', 'PL', 'PL', 'PL', 'LV', 0, GETDATE(), 'SMJ'",
+EL,EL,"INSERT INTO MILookupFieldDefinition SELECT 'LVType', 'EL', 'EL', 'EL', 'LV', 0, GETDATE(), 'SMJ'",
+OT,Other,"INSERT INTO MILookupFieldDefinition SELECT 'LVType', 'OT', 'Other', 'Other', 'LV', 0, GETDATE(), 'SMJ'",
+LVSETTPOINT,LVSETTPOINT,LVSETTPOINT,
+PL,Prelit,"INSERT INTO MILookupFieldDefinition SELECT 'LVSETTPOINT', 'PL', 'Prelit', 'Prelit', 'LV', 0, GETDATE(), 'SMJ'",
+D,Defence Served,"INSERT INTO MILookupFieldDefinition SELECT 'LVSETTPOINT', 'D', 'Defence Served', 'Defence Served', 'LV', 0, GETDATE(), 'SMJ'",
+A,Allocation Questionnaire complete,"INSERT INTO MILookupFieldDefinition SELECT 'LVSETTPOINT', 'A', 'Allocation Questionnaire complete', 'Allocation Questionnaire complete', 'LV', 0, GETDATE(), 'SMJ'",
+P36,Pt36 offer,"INSERT INTO MILookupFieldDefinition SELECT 'LVSETTPOINT', 'P36', 'Pt36 offer', 'Pt36 offer', 'LV', 0, GETDATE(), 'SMJ'"
+R,Request for further information,"INSERT INTO MILookupFieldDefinition SELECT 'LVSETTPOINT', 'R', 'Request for further information', 'Request for further information', 'LV', 0, GETDATE(), 'SMJ'"
+T,21 days before trial,"INSERT INTO MILookupFieldDefinition SELECT 'LVSETTPOINT', 'T', '21 days before trial', '21 days before trial', 'LV', 0, GETDATE(), 'SMJ'"
+S,Settlement at trial,"INSERT INTO MILookupFieldDefinition SELECT 'LVSETTPOINT', 'S', 'Settlement at trial', 'Settlement at trial', 'LV', 0, GETDATE(), 'SMJ'"
+J,Judgement at trial,"INSERT INTO MILookupFieldDefinition SELECT 'LVSETTPOINT', 'J', 'Judgement at trial', 'Judgement at trial', 'LV', 0, GETDATE(), 'SMJ'"
+P47,Pt47.19 offer,"INSERT INTO MILookupFieldDefinition SELECT 'LVSETTPOINT', 'P47', 'Pt47.19 offer', 'Pt47.19 offer', 'LV', 0, GETDATE(), 'SMJ'"
+S8,Part 8 proceedings settled,"INSERT INTO MILookupFieldDefinition SELECT 'LVSETTPOINT', 'S8', 'Part 8 proceedings settled', 'Part 8 proceedings settled', 'LV', 0, GETDATE(), 'SMJ'"
+J8,Part 8 proceedings resolved at Detailed Assessment,"INSERT INTO MILookupFieldDefinition SELECT 'LVSETTPOINT', 'J8', 'Part 8 proceedings resolved at Detailed Assessment', 'Part 8 proceedings resolved at Detailed Assessment', 'LV', 0, GETDATE(), 'SMJ'"
+LVRESMETH,LVRESMETH,LVRESMETH
+DISC,Claim discontinued,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'DISC', 'Claim discontinued', 'Claim discontinued', 'LV', 0, GETDATE(), 'SMJ'"
+DROP,Drop hands offer agreed,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'DROP', 'Drop hands offer agreed', 'Drop hands offer agreed', 'LV', 0, GETDATE(), 'SMJ'"
+CINC,Costs Inclusive offer agreed,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'CINC', 'Costs Inclusive offer agreed', 'Costs Inclusive offer agreed', 'LV', 0, GETDATE(), 'SMJ'"
+PT36,Part 36 offer accepted,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'PT36', 'Part 36 offer accepted', 'Part 36 offer accepted', 'LV', 0, GETDATE(), 'SMJ'"
+PT47,Part 47.19 offer accepted,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'PT47', 'Part 47.19 offer accepted', 'Part 47.19 offer accepted', 'LV', 0, GETDATE(), 'SMJ'"
+TWLM,Trial / Hearing: Won - limitation,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'TWLM', 'Trial / Hearing: Won - limitation', 'Trial / Hearing: Won - limitation', 'LV', 0, GETDATE(), 'SMJ'"
+TWLI,Trial / Hearing: Won - liability,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'TWLI', 'Trial / Hearing: Won - liability', 'Trial / Hearing: Won - liability', 'LV', 0, GETDATE(), 'SMJ'"
+TWCA,Trial / Hearing: Won - causation,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'TWCA', 'Trial / Hearing: Won - causation', 'Trial / Hearing: Won - causation', 'LV', 0, GETDATE(), 'SMJ'"
+TWQU,Trial / Hearing: Won - quantum,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'TWQU', 'Trial / Hearing: Won - quantum', 'Trial / Hearing: Won - quantum', 'LV', 0, GETDATE(), 'SMJ'"
+TLLM,Trial / Hearing: Lost - limitation,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'TLLM', 'Trial / Hearing: Lost - limitation', 'Trial / Hearing: Lost - limitation', 'LV', 0, GETDATE(), 'SMJ'"
+TLLI,Trial / Hearing: Lost - liability,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'TLLI', 'Trial / Hearing: Lost - liability', 'Trial / Hearing: Lost - liability', 'LV', 0, GETDATE(), 'SMJ'"
+TLCA,Trial / Hearing: Lost - causation,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'TLCA', 'Trial / Hearing: Lost - causation', 'Trial / Hearing: Lost - causation', 'LV', 0, GETDATE(), 'SMJ'"
+TLQU,Trial / Hearing: Lost - quantum,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'TLQU', 'Trial / Hearing: Lost - quantum', 'Trial / Hearing: Lost - quantum', 'LV', 0, GETDATE(), 'SMJ'"
+AWLM,Appeal: Won - limitation,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'AWLM', 'Appeal: Won - limitation', 'Appeal: Won - limitation', 'LV', 0, GETDATE(), 'SMJ'"
+AWLI,Appeal: Won - liability,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'AWLI', 'Appeal: Won - liability', 'Appeal: Won - liability', 'LV', 0, GETDATE(), 'SMJ'"
+AWCA,Appeal: Won - causation,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'AWCA', 'Appeal: Won - causation', 'Appeal: Won - causation', 'LV', 0, GETDATE(), 'SMJ'"
+AWQU,Appeal: Won - quantum,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'AWQU', 'Appeal: Won - quantum', 'Appeal: Won - quantum', 'LV', 0, GETDATE(), 'SMJ'"
+ALLM,Appeal: Lost - limitation,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'ALLM', 'Appeal: Lost - limitation', 'Appeal: Lost - limitation', 'LV', 0, GETDATE(), 'SMJ'"
+ALLI,Appeal: Lost - liability,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'ALLI', 'Appeal: Lost - liability', 'Appeal: Lost - liability', 'LV', 0, GETDATE(), 'SMJ'"
+ALCA,Appeal: Lost - causation,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'ALCA', 'Appeal: Lost - causation', 'Appeal: Lost - causation', 'LV', 0, GETDATE(), 'SMJ'"
+ALQU,Appeal: Lost – quantum,"INSERT INTO MILookupFieldDefinition SELECT 'LVRESMETH', 'ALQU', 'Appeal: Lost – quantum', 'Appeal: Lost – quantum', 'LV', 0, GETDATE(), 'SMJ'"
+LVTRACK,LVTRACK,LVTRACK
+280,Small Claims,"INSERT INTO MILookupFieldDefinition SELECT 'LVTRACK', '280', 'Small Claims', 'Small Claims', 'LV', 0, GETDATE(), 'SMJ'"
+220,Fast Track,"INSERT INTO MILookupFieldDefinition SELECT 'LVTRACK', '220', 'Fast Track', 'Fast Track', 'LV', 0, GETDATE(), 'SMJ'"
+210A,Multi Track (up to £50k),"INSERT INTO MILookupFieldDefinition SELECT 'LVTRACK', '210A', 'Multi Track (up to £50k)', 'Multi Track (up to £50k)', 'LV', 0, GETDATE(), 'SMJ'"
+210B,Multi Track (£50k-£500k),"INSERT INTO MILookupFieldDefinition SELECT 'LVTRACK', '210B', 'Multi Track (£50k-£500k)', 'Multi Track (£50k-£500k)', 'LV', 0, GETDATE(), 'SMJ'"
+210C,Multi Track (£500k+),"INSERT INTO MILookupFieldDefinition SELECT 'LVTRACK', '210C', 'Multi Track (£500k+)', 'Multi Track (£500k+)', 'LV', 0, GETDATE(), 'SMJ'"
+230,CPR Part 8,"INSERT INTO MILookupFieldDefinition SELECT 'LVTRACK', '230', 'CPR Part 8', 'CPR Part 8', 'LV', 0, GETDATE(), 'SMJ'"
+250,Recovery - Small Claims,"INSERT INTO MILookupFieldDefinition SELECT 'LVTRACK', '250', 'Recovery - Small Claims', 'Recovery - Small Claims', 'LV', 0, GETDATE(), 'SMJ'"
+260,Recovery - Fast Track,"INSERT INTO MILookupFieldDefinition SELECT 'LVTRACK', '260', 'Recovery - Fast Track', 'Recovery - Fast Track', 'LV', 0, GETDATE(), 'SMJ'"
+270,Recovery - Multi Track,"INSERT INTO MILookupFieldDefinition SELECT 'LVTRACK', '270', 'Recovery - Multi Track', 'Recovery - Multi Track', 'LV', 0, GETDATE(), 'SMJ'"
+200,Other (inc. Inquest / Prosecution),"INSERT INTO MILookupFieldDefinition SELECT 'LVTRACK', '200', 'Other (inc. Inquest / Prosecution)', 'Other (inc. Inquest / Prosecution)', 'LV', 0, GETDATE(), 'SMJ'"
+290,MoJ Stage 3,"INSERT INTO MILookupFieldDefinition SELECT 'LVTRACK', '290', 'MoJ Stage 3', 'MoJ Stage 3', 'LV', 0, GETDATE(), 'SMJ'"
+LVWRKTYPE,LVWRKTYPE,LVWRKTYPE
+0A,Advice,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '0A', 'Advice', 'Advice', 'LV', 0, GETDATE(), 'SMJ'"
+1A,Admin,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '1A', 'Admin', 'Admin', 'LV', 0, GETDATE(), 'SMJ'"
+244,Costs - Advice,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '244', 'Costs - Advice', 'Costs - Advice', 'LV', 0, GETDATE(), 'SMJ'"
+241,Costs - Part 7,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '241', 'Costs - Part 7', 'Costs - Part 7', 'LV', 0, GETDATE(), 'SMJ'"
+242,Costs - Part 8,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '242', 'Costs - Part 8', 'Costs - Part 8', 'LV', 0, GETDATE(), 'SMJ'"
+240,Costs - Pre-lit,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '240', 'Costs - Pre-lit', 'Costs - Pre-lit', 'LV', 0, GETDATE(), 'SMJ'"
+243,Costs - transfer,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '243', 'Costs - transfer', 'Costs - transfer', 'LV', 0, GETDATE(), 'SMJ'"
+2A,EL/PL,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '2A', 'EL/PL', 'EL/PL', 'LV', 0, GETDATE(), 'SMJ'"
+1B,Household,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '1B', 'Household', 'Household', 'LV', 0, GETDATE(), 'SMJ'"
+260,Inquest,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '260', 'Inquest', 'Inquest', 'LV', 0, GETDATE(), 'SMJ'"
+4A,Pet,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '4A', 'Pet', 'Pet', 'LV', 0, GETDATE(), 'SMJ'"
+8A,Product Liability,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '8A', 'Product Liability', 'Product Liability', 'LV', 0, GETDATE(), 'SMJ'"
+7A - ,Motor - Bent Metal only,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '7A - ', 'Motor - Bent Metal only', 'Motor - Bent Metal only', 'LV', 0, GETDATE(), 'SMJ'"
+6A,Motor - Credit Hire only,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '6A', 'Motor - Credit Hire only', 'Motor - Credit Hire only', 'LV', 0, GETDATE(), 'SMJ'"
+3A,Motor - PI + Credit Hire,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '3A', 'Motor - PI + Credit Hire', 'Motor - PI + Credit Hire', 'LV', 0, GETDATE(), 'SMJ'"
+0C,Motor - PI (no credit Hire),"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '0C', 'Motor - PI (no credit Hire)', 'Motor - PI (no credit Hire)', 'LV', 0, GETDATE(), 'SMJ'"
+261,Motor - Prosecution,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '261', 'Motor - Prosecution', 'Motor - Prosecution', 'LV', 0, GETDATE(), 'SMJ'"
+5A,Travel,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '5A', 'Travel', 'Travel', 'LV', 0, GETDATE(), 'SMJ'"
+299,Other - None of the other options fit,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '299', 'Other - None of the other options fit', 'Other - None of the other options fit', 'LV', 0, GETDATE(), 'SMJ'"
+290,Infant Approval,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '290', 'Infant Approval', 'Infant Approval', 'LV', 0, GETDATE(), 'SMJ'"
+262,Fraud,"INSERT INTO MILookupFieldDefinition SELECT 'LVWRKTYPE', '262', 'Fraud', 'Fraud', 'LV', 0, GETDATE(), 'SMJ'"

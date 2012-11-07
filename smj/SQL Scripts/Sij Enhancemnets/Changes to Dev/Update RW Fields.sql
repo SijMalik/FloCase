@@ -1,0 +1,13 @@
+UPDATE ClientMIFieldSet
+SET ClientMIFieldSet_MIFieldROWrite = 1
+WHERE ClientMIFieldSet_MIFieldDefCode IN 
+('LVDAMCLMD',
+'MICFIELD65',
+'MICFIELD77',
+'BLMCstRes',
+'LVTOTSDCLM',
+'SpDmStVl',
+'IALDAMAGES',
+'FICURRESCO'
+)
+AND ClientMIFieldSet_ClientMIDEFCODE LIKE 'LV%'

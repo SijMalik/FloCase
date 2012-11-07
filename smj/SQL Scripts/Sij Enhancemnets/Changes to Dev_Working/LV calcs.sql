@@ -1,0 +1,25 @@
+
+
+select * from ClientMIFieldSet c
+where c.ClientMIFieldSet_ClientMIFieldSetID IN
+(
+24870,
+24871,
+24873,
+24874,
+24885,
+24894,
+24897,
+24909,
+24915,
+24927,
+24928,
+24951,
+24952,
+24959,
+24962,
+24967,
+24982,
+24994,
+24995
+)

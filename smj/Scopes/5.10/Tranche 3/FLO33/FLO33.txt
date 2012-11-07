@@ -1,0 +1,45 @@
+Part18_Part18ID			INT IDENTITY (1,1)
+Part18_DefenceDetailsCaseID	INT NOT NULL
+Part18_RequestPreparedBy	VARCHAR(10) NOT NULL -- 'Laywer' or 'Counsel'
+Part18_RequestDate		DATETIME NOT NULL 
+Part18_ResponseRequiredByDate	DATETIME --MANDATORY IF ABOVE DATE POULATED
+Part18_ResponseReceivededDate	DATETIME
+Part18_Description		VARCHAR(255) DEFAULT 'Part 18 Repsonse Due Today'
+Part18_Comment			NVARCHAR(MAX)--MANDATORY - DEFAULT 'C'
+Part18_Amended			BIT -- MANDATORY - DEAFULT 0
+Part18_CreatedBy		VARCHAR(255) NOT NULL
+Part18_CreatedDate		DATETIME NOT NULL DEFAULT GETDATE()
+
+LTMM_Part_18_Fetch
+INPUTS:
+@pCaseID
+@pUserName
+
+OUTPUTS:
+DefenceDetails_Code (from DefenceDetails table)
+DefenceDetails_POCRec (from DefenceDetails table)
+DefenceDetails_DefStatus (from DefenceDetails table)
+Part18_RequestPreparedBy
+Part18_RequestDate
+Part18_ReponseRequiredByDate
+Part18_ReponseReceivededDate	
+Part18_Description
+Paert18_Amended
+Part18_Comment
+Part18_CreatedBy
+Part18_CreatedDate
+
+
+LTMM_Part18_Save 
+INPUTS:
+@Part18_RequestPreparedBy VARHCAR(10) -- MANDATORY - Either 'Lawyer' or 'Counsel'
+@Part18_RequestDate DATETIME -- MANDATORY - DEFAULT TO TODAY's DATE
+@ResponseReceivedDate -- OPTIONAL
+@Defence_Description VARCHAR (255)
+@Defence_Comment NVARCHAR(MAX) -- MANDATORY. DEFAULT TO 'Part 18 Response Due Today'
+
+New Lookups for Request Prepared By haveing LookupTypdeCode 'PrepBy':
+Lawyer
+Counsel
+
+LTMM_CaseKeyDates_Save 

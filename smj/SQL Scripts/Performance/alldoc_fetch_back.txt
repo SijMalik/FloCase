@@ -1,0 +1,140 @@
+USE [Flosuite_Core_Training]
+GO
+/****** Object:  StoredProcedure [dbo].[AllDocument_Fetch_BACK]    Script Date: 08/28/2012 09:30:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROC [dbo].[AllDocument_Fetch_BACK]
+(
+	@pProcessID					int = 0,
+	@pDocStore					nvarchar(255) = '',
+	@pFolderPath				nvarchar(255) = '',
+	@pUserName					nvarchar(255) = '',
+	@pCaseContactID				nvarchar(255) = '',
+	@pCaseID					nvarchar(255) = '',
+	@pAppTaskDefinitionCode		nvarchar(255) = '',
+	@pAppTaskDocType			nvarchar(255) = '',
+	@pHistoryDesc				nvarchar(max) = '',
+	@pWorkFlowID				int = 0
+)
+AS
+
+	/*START RPM*/	
+	DECLARE @lastDocID int
+	
+	SELECT @lastDocID = MAX(doc.DocumentID)
+	FROM Document As doc
+	inner join Action As act ON (act.ActionID = doc.ActionID)
+	WHERE ((@pWorkflowID = 0) OR (act.WorkflowID = @pWorkflowID))		
+	AND	 ((@pProcessID = 0) OR (act.ProcessID = @pProcessID))
+
+	--Select @lastDocID,@pProcessID,@pWorkflowID	
+	/*END RPM*/
+	
+	DECLARE @myLastError int 
+	SELECT @myLastError = 0
+	DECLARE @myLastErrorString nvarchar(255)
+	SELECT @myLastErrorString = ''
+	
+	SET @pHistoryDesc = '<DOCHIST><DOC><ID>1</ID><DOCUMENTID>' + Convert(nvarchar,@lastDocID)+ '</DOCUMENTID><HISTTEXT>' + @pHistoryDesc + '</HISTTEXT></DOC></DOCHIST>'
+	
+	-- GV 2011/07/12 -- Clean XML 
+	SET @pHistoryDesc = REPLACE(@pHistoryDesc,'&','&amp;')
+		
+	DECLARE @Today datetime 
+	SELECT @Today = GETDATE()
+	
+	/* GQL SECTION */
+	
+	--DECLARE XML VARIABLE
+	DECLARE @HIST_XML AS XML
+		
+	--DECLARE TEMP TABLE TO HOLD PROCESSING DATA
+	DECLARE @XmlTable TABLE
+	(
+		ID [int] NULL,
+		DOCUMENTID [int] NULL,
+		HISTTEXT nvarchar(MAX) COLLATE DATABASE_DEFAULT NULL
+	)
+	
+	
+	IF ISNULL(@pHistoryDesc, '') <> ''
+	BEGIN
+		--SET XML VARIABLE TO PASSED XML STRING
+		SELECT @HIST_XML = CAST(@pHistoryDesc AS XML)
+			
+		--TRANSFER INPUT XML INTO OPENXML READABLE FORM
+		DECLARE @IDOC INT
+		EXEC sp_xml_preparedocument @IDOC output, @HIST_XML
+		
+		--INSERT FIELD DATA FROM PASSED XML INTO TEMP TABLE FOR PROCESSING
+		INSERT INTO @XmlTable (ID, DOCUMENTID, HISTTEXT)
+		SELECT DISTINCT SHAPE.ID, SHAPE.DOCUMENTID, replace(SHAPE.HISTTEXT,'"','')
+			FROM (
+					SELECT DISTINCT ID as ID, DOCUMENTID as DOCUMENTID, HISTTEXT as HISTTEXT
+					FROM OPENXML(@IDOC, '/DOCHIST/DOC',2)
+					WITH (ID int ,
+					DOCUMENTID INT,
+					HISTTEXT varchar(MAX))
+				
+				) AS SHAPE 
+		
+		--TIDY UP XML DOCUMENT USED IN PROCESSING INPUT
+		exec sp_xml_removedocument @IDOC
+	END
+		 
+	--select Value 
+	--from Action as act INNER JOIN Document 
+	--	on (act.ActionID = Document.ActionID) INNER JOIN PropertyInDocument	
+	--	ON Document.DocumentID =  PropertyInDocument.DocumentID INNER join Property 
+	--	on (Property.PropertyID = PropertyInDocument.PropertyID)	INNER JOIN [PropertyType] 
+	--	ON [PropertyType].[PropertyTypeID] = [Property].[PropertyTypeID] LEFT OUTER JOIN @XmlTable x --GQL ADDED
+	--	ON Document.DocumentID = x.DOCUMENTID --GQL ADDED
+	--where (act.ProcessID = @pProcessID) AND ([PropertyType].Name = 'DocName') 
+	--AND (ISNULL(Property.Value,'') <> '')
+	
+	/* GQL SECTION */
+	select 	Document.DocumentID AS FloSuiteDocumentID, 	
+		@pUserName		as pUserName,
+		@pUserName		as pAuthor,
+		@pCaseContactID	as pCaseContactID,
+		@pCaseID		as pCaseID,
+		dbo.blmFuncFormatDate(dbo.blmfuncTrimFileExtension(Value), @Today) + ' 01' +
+		dbo.blmfuncFileExtension(Value) as pDocName,
+		CASE WHEN (dbo.blmfuncGetFileExtension(Value)='.msg')
+		THEN
+			x.HISTTEXT
+		ELSE
+			dbo.blmFuncFormatDate(dbo.blmfuncTrimFileExtension(Value), @Today) + ' 01' +
+			dbo.blmfuncFileExtension(Value)
+			
+		END
+		as pDescription,
+		@pFolderPath	as pDocPath,
+		@pAppTaskDefinitionCode	as pAppTaskDefinitionCode,
+		@pAppTaskDocType	as pAppTaskDocType,
+		Value AS DocumentName,
+		dbo.blmfuncTrimFileExtension(Value) +
+		dbo.blmfuncFileExtension(Value)  AS pDocTitle,
+		@pDocStore + '\'
+			+ CASE WHEN (@pFolderPath='')
+				THEN ''
+				ELSE @pFolderPath + '\'
+	 		  END
+			+ Value AS FullDocumentName,
+		x.HISTTEXT AS HISTORYTEXT --GQL ADDED
+	FROM Action AS act 	
+	INNER JOIN Document ON (act.ActionID = Document.ActionID) 
+	INNER JOIN PropertyInDocument ON Document.DocumentID =  PropertyInDocument.DocumentID 
+	INNER join Property ON (Property.PropertyID = PropertyInDocument.PropertyID)	
+	INNER JOIN [PropertyType] ON [PropertyType].[PropertyTypeID] = [Property].[PropertyTypeID] 
+	LEFT OUTER JOIN @XmlTable x	ON Document.DocumentID = x.DOCUMENTID --GQL ADDED	
+	WHERE (act.ProcessID = @pProcessID) AND ([PropertyType].Name = 'DocName') 
+	AND (ISNULL(Property.Value,'') <> '')
+	
+SELECT @lastDocID = MAX(doc.DocumentID)
+	FROM Document As doc
+	inner join Action As act ON (act.ActionID = doc.ActionID)
+	WHERE ((@pWorkflowID = 0) OR (act.WorkflowID = @pWorkflowID))		
+	AND	 ((@pProcessID = 0) OR (act.ProcessID = @pProcessID))

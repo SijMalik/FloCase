@@ -1,0 +1,6 @@
+ALTER TABLE 
+dbo.ClientRule
+ADD CONSTRAINT
+CK_CRCODE
+ UNIQUE NONCLUSTERED    
+ (ClientRule_Code) 
